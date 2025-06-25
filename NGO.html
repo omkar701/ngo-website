@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navi Disha Foundation</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;600&family=Barlow:wght@300;500;700&family=Bebas+Neue&family=Segoe+UI&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons for ourwork.html original icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <style>
+        /* Common Color Variables - Unified Palette (NEW SCHEME: Purple & Gold) */
+        :root {
+            --brand-primary: #673ab7; /* Strong Purple - Evokes wisdom, dignity */
+            --brand-secondary: #ffeb3b; /* Vibrant Gold - Represents optimism, warmth, energy */
+            --brand-dark: #7f5ae4; /* Very Dark Purple - For strong contrasts, deep backgrounds */
+            --brand-light: #ede7f6; /* Very Light Lavender - Calming background */
+            --text-dark: #212121; /* Almost black for main text */
+            --text-light: #ffffff; /* White */
+            --accent-red: #d32f2f; /* Strong Red - For urgent calls to action like 'Donate' */
+            --neutral-light-gray: #f5f5f5; /* Soft Off-white for subtle section breaks */
+            --highlight-color: #7e57c2; /* A brighter purple for specific highlights like timeline markers */
+        }
+
+        /* Base Body Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--brand-light);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            scroll-behavior: smooth;
+        }
+
+        /* Headings */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--brand-dark); /* Headings in dark purple for strong presence */
+        }
+
+        .section-heading {
+            font-weight: 800;
+            color: var(--brand-dark);
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--brand-secondary); /* Underline in vibrant gold */
+            border-radius: 2px;
+        }
+
+        .section-heading.text-white::after {
+            background-color: var(--text-light); /* White underline for white headings */
+        }
+
+        .lead-info {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.15rem;
+            color: #555; /* Retain default grey for subdued info text */
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        /* Backgrounds */
+        .bg-gradient-light {
+            background: linear-gradient(to bottom, var(--text-light), var(--brand-light));
+        }
+        .bg-section-light {
+            background-color: var(--neutral-light-gray);
+        }
+        .bg-gradient-dark-brand {
+            background: linear-gradient(to right, var(--brand-dark), var(--brand-primary));
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+            padding: 15px 0;
+            background-color: transparent; /* Transparent initially */
+            box-shadow: none;
+            z-index: 1030;
+        }
+
+        .navbar.scrolled {
+            background-color: var(--brand-primary); /* Primary purple when scrolled */
+            padding: 10px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: var(--text-light) !important;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand .logo {
+            height: 60px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-brand .logo {
+            height: 50px;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        .navbar-toggler-icon {
+            background-image: url("img/Environment.jpg");
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-light) !important;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-left: 20px;
+            position: relative;
+            transition: color 0.3s ease;
+            padding-bottom: 5px;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--brand-secondary); /* Accent gold underline */
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 100%;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--brand-secondary) !important;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--brand-secondary) !important;
+        }
+
+        .btn-donate {
+            border: 2px solid var(--text-light) !important;
+            color: var(--text-light) !important;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-donate:hover {
+            background-color: var(--text-light) !important;
+            color: var(--brand-primary) !important; /* Purple on hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Sections (General) */
+        .hero-section {
+            min-height: 80vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .hero-home {
+            background-image: url("img/shru\ edu.jpg");
+            background-attachment: fixed;
+        }
+
+        .hero-about {
+            background-image: url("img/Environment.jpg  ");
+        }
+
+        .hero-our-work {
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url("img/hero\ gallery\ .jpg");
+        }
+
+        .hero-gallery {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)), url("img/prople\ cleaning.jpg");
+            min-height: 100vh;
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0);
+        }
+        .hero-contact {
+            background-image: url("img/prople\ cleaning.jpg");
+        }
+
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .hero-section h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-gallery h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 4.5rem;
+            color: var(--brand-secondary); /* Accent gold for gallery hero */
+        }
+        .hero-gallery p {
+            font-size: 1.5rem;
+            font-family:'Montserrat', sans-serif ;
+        }
+
+
+        .hero-section p {
+            font-family: 'strikethrough';
+            font-size: 3.3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-section .btn-outline-light {
+            border-width: 2px;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .hero-section .btn-outline-light:hover {
+            background-color: var(--brand-secondary);
+            border-color: var(--brand-secondary);
+            color: var(--text-dark); /* Dark text on vibrant gold */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Mission & Values Section */
+        .mission-values, .our-pillars, .impact-stats, .team-section, .contact-section {
+            padding: 80px 0;
+        }
+
+        .value-card, .pillar-card, .stat-box, .team-member-card, .focus-card, .gallery-card, .what-we-do-card {
+            background-color: var(--text-light);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            height: 100%;
+        }
+
+        .value-card:hover, .pillar-card:hover, .stat-box:hover, .team-member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-card .icon-pop {
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover .icon-pop {
+            transform: scale(1.1);
+        }
+
+        /* Pillars Section */
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--brand-primary); /* Primary purple for icons */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .read-more {
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            color: var(--brand-primary);
+        }
+
+        .read-more:hover {
+            color: var(--brand-secondary) !important;
+        }
+
+        /* Journey Section (Timeline) */
+        .our-journey {
+            background-color: var(--brand-dark); /* Dark purple background */
+            padding: 80px 0;
+        }
+        .our-journey .section-heading::after {
+            background-color: var(--brand-secondary);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--highlight-color); /* Brighter purple for timeline line */
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: var(--text-light);
+            border: 4px solid var(--brand-secondary); /* Accent gold for timeline dots */
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item.left {
+            left: 0;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        .timeline-item.left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        .timeline-item.right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        .timeline-item.right::after {
+            left: -16px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            border-radius: 10px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Impact Stats */
+        .stat-box {
+            background-color: var(--text-light);
+            padding: 30px 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stat-box i {
+            color: var(--brand-primary);
+            margin-bottom: 15px;
+        }
+
+        .stat-box h3 {
+            color: var(--brand-dark);
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .stat-box p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* Team Section */
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 4px solid var(--brand-primary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-links a {
+            color: var(--brand-primary); /* Social links in primary purple */
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--brand-secondary); /* Accent gold on hover */
+        }
+
+        /* Image Gallery (About Us Page) */
+        .image-gallery {
+            background-image: url();
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 0;
+        }
+
+        .image-gallery .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-item {
+            height: 250px;
+            border: 5px solid var(--text-light);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 235, 59, 0.7); /* Gold overlay */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .gallery-item .overlay span {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Call to Action Section (General) */
+        .cta-section {
+            background-image: url();
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 50px 0;
+        }
+
+        .cta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--brand-primary);
+            opacity: 0.8;
+        }
+
+        .cta-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            color: var(--text-light);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-brand-primary-solid {
+            background-color: var(--brand-primary);
+            border-color: var(--brand-primary);
+            color: var(--text-light);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-brand-primary-solid:hover {
+            background-color: var(--brand-secondary);
+            border-color: var(--brand-secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            color: var(--text-dark); /* Dark text on gold hover */
+        }
+
+        /* Our Work Specific Styles */
+        .section {
+            padding: 80px 0;
+        }
+        .focus-card {
+           background: var(--light-bg);
+            padding: 30px;
+           border-radius: 12px;
+          text-align: center;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         height: 100%;
+         animation: fadeInUp 1s ease;
+        }
+
+         .focus-card:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+         .focus-card i {
+           font-size: 2.5rem;
+            margin-bottom: 15px;
+           color: var(--primary);
+           transition: transform 0.3s ease;
+        }
+
+         .focus-card:hover i {
+            transform: scale(1.2);
+        }
+
+
+
+        .testimonial {
+            background: var(--neutral-light-gray);
+            padding: 20px;
+            border-left: 5px solid var(--brand-primary);
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-in;
+        }
+
+        /* Contact Us Specific Styles */
+        .contact-container {
+            padding: 60px 15px;
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        .contact-header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+        }
+        
+        .contact-header h2 {
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+        .contact-header h3 {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .contact-form-card {
+            background-color: var(--text-light);
+            padding: 40px;
+            color: var(--text-dark);
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-form-card label {
+            width: auto;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .contact-form-card input, .contact-form-card textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 0.5rem;
+        }
+
+        .contact-form-card button {
+            color:var(--text-light);
+            background-color: var(--brand-primary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 0.5rem;
+            width: auto;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .contact-form-card button:hover {
+            background-color: var(--brand-secondary);
+            color: var(--text-dark);
+        }
+
+        .info-box {
+            background: var(--brand-light);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .info-box i {
+            font-size: 24px;
+            color: var(--brand-primary);
+        }
+        .info-box h5 {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        .info-box p {
+            margin-bottom: 0;
+            color: #555;
+        }
+
+
+        /* Gallery Page Specific Styles (integrated) */
+        .section-heading-gallery {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+            color: var(--brand-dark); /* Gallery heading uses dark purple */
+            letter-spacing: 1.5px;
+        }
+
+        .section-heading-gallery::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--brand-secondary);
+            border-radius: 2px;
+        }
+
+        .gallery-card {
+            background-color: var(--brand-dark); /* Dark purple for gallery cards */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gallery-card .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .gallery-card .card-title {
+            color: var(--brand-secondary);
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 1px;
+        }
+
+        /* What We Do Cards */
+        .what-we-do-card .card-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .icon-large {
+            font-size: 3rem;
+            color: var(--brand-primary); /* Large icons use primary purple */
+        }
+
+        /* Impact Cards (from Galleryandimpact.html - now unified) */
+        .impact-card-gallery {
+            background-color: var(--brand-primary); /* Primary purple for impact cards */
+            padding: 1.5rem;
+            border: none;
+            color: var(--text-light); /* White text on purple */
+        }
+
+        .impact-card-gallery .card-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--brand-secondary); /* Accent gold for numbers */
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-card-gallery .card-text {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        /* Homepage Specific styles */
+        .homepage-slider {
+            position: relative;
+            width: 100%;
+            max-width: 1500px;
+            height: 600px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+
+        .slides {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .homepage-slider input[type="radio"] {
+            display: none;
+        }
+
+        #slide1:checked ~ .slides { transform: translateX(0%); }
+        #slide2:checked ~ .slides { transform: translateX(-100%); }
+        #slide3:checked ~ .slides { transform: translateX(-200%); }
+
+        .homepage-slider .navigation {
+            position: absolute;
+            width: 100%;
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .homepage-slider .nav-dot {
+            width: 15px;
+            height: 15px;
+            background: var(--text-light);
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: 0.3s;
+        }
+
+        .homepage-slider .nav-dot:hover {
+            opacity: 1;
+        }
+
+        .donation-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            background-color: var(--neutral-light-gray);
+        }
+
+        .donation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-tag {
+            background-color: var(--accent-red);
+            color: var(--text-light);
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        .progress-line {
+            height: 4px;
+            background-color: #eee;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .progress-line .fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: var(--brand-secondary);
+        }
+
+        .donate-btn-homepage {
+            background-color: var(--brand-secondary);
+            color: var(--text-dark); /* Dark text on gold */
+            font-weight: bold;
+            border: none;
+            width: 100%;
+            padding: 10px 0;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .donate-btn-homepage:hover {
+            background-color: var(--brand-primary);
+            color: var(--text-light);
+        }
+
+        .donation-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+
+        .partners-section {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: var(--text-light);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .partner {
+            background-color: var(--neutral-light-gray);
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .partner img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .partner:hover {
+            transform: scale(1.05);
+        }
+
+        .video-section {
+            background-color: var(--neutral-light-gray);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 0;
+        }
+
+        .video-container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .blockquote-footer {
+            -webkit-text-fill-color: var(--brand-primary); /* Footer text in primary purple */
+            font-style: italic;
+        }
+
+        /* Hover Effects */
+        .glow-card:hover {
+            box-shadow: 0 0 20px rgba(255, 235, 59, 0.6); /* Gold glow */
+        }
+
+        .lift-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .gallery-img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Call to Action for Gallery section */
+        .call-to-action-gallery {
+            background-color: var(--accent-red) !important;
+            border-radius: 15px !important;
+            padding: 3rem !important;
+        }
+
+        .call-to-action-gallery h2 {
+            color: var(--text-light);
+            font-size: 3rem;
+        }
+
+        .call-to-action-gallery p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .donate-btn-large {
+            min-width: 200px;
+            padding: 1rem 2.5rem;
+            font-size: 1.3rem;
+            border-radius: 30px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: var(--brand-dark); /* Dark purple footer */
+            color: var(--text-light);
+            padding: 50px 0 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer .text-brand-primary {
+            color: var(--brand-secondary) !important; /* Accent gold for footer headings */
+        }
+
+        .footer .text-muted {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        .footer .social-icons a {
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            color: var(--brand-secondary);
+        }
+
+        .footer .list-unstyled li a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+
+        .footer .list-unstyled li a:hover {
+            color: var(--brand-secondary);
+        }
+
+        .newsletter-form .form-control {
+            border-radius: 50px 0 0 50px;
+            border: none;
+        }
+
+        .newsletter-form .btn-brand-primary-solid {
+            border-radius: 0 50px 50px 0;
+            background-color: var(--brand-secondary);
+            border-color: var(--brand-secondary);
+            color: var(--text-dark); /* Dark text on newsletter button */
+        }
+        .newsletter-form .btn-brand-primary-solid:hover {
+            background-color: var(--brand-primary);
+            border-color: var(--brand-primary);
+            color: var(--text-light);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to   { transform: scale(1); opacity: 1; }
+        }
+
+        .fade-in-heading {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDown 1s ease-out 0.2s forwards;
+        }
+
+        .fade-in-text {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out 0.7s forwards;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out 1s forwards;
+        }
+
+        .call-to-action-card {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: zoomIn 1s ease-out 1.5s forwards;
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            .navbar-brand .logo {
+                height: 50px;
+            }
+            .navbar-nav .nav-link {
+                margin-left: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+            .navbar-nav .nav-link::after {
+                width: 50%;
+                left: 25%;
+            }
+            .hero-section, .hero-our-work, .hero-gallery, .hero-contact {
+                min-height: 60vh;
+                padding-top: 100px;
+            }
+            .hero-section h1, .hero-our-work h1, .hero-gallery h1, .hero-contact h1 {
+                font-size: 2.5rem;
+            }
+            .hero-section p, .hero-our-work p, .hero-gallery p, .hero-contact p {
+                font-size: 1rem;
+            }
+            .section-heading, .section-heading-gallery {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            .lead-info {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+
+            /* Timeline Adjustments for smaller screens */
+            .timeline::after {
+                left: 31px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item.right {
+                left: 0%;
+            }
+            .timeline-item.left::after,
+            .timeline-item.right::after {
+                left: 15px;
+            }
+            .timeline-item.left::before,
+            .timeline-item.right::before {
+                left: 45px;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+
+            .team-avatar {
+                width: 100px;
+                height: 100px;
+            }
+            .gallery-item {
+                height: 200px;
+            }
+            .cta-section h2 {
+                font-size: 2.2rem;
+            }
+            .cta-section p {
+                font-size: 1rem;
+            }
+            .btn-lg {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            .footer .col-lg-4 {
+                text-align: center;
+            }
+            .footer .social-icons {
+                justify-content: center;
+                display: flex;
+            }
+            .newsletter-form .input-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            .newsletter-form .form-control {
+                border-radius: 50px;
+                margin-bottom: 10px;
+                width: 100%;
+                max-width: 300px;
+            }
+            .newsletter-form .btn-brand-primary-solid {
+                border-radius: 50px;
+                width: 100%;
+                max-width: 200px;
+            }
+            .homepage-slider {
+                height: 400px;
+            }
+            .video-container {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero-section h1, .hero-our-work h1, .hero-gallery h1, .hero-contact h1 {
+                font-size: 2rem;
+            }
+            .section-heading, .section-heading-gallery {
+                font-size: 1.8rem;
+            }
+            .timeline-item {
+                padding-left: 50px;
+                padding-right: 15px;
+            }
+            .timeline-item::after {
+                width: 20px;
+                height: 20px;
+                top: 18px;
+                left: 10px;
+                border-width: 3px;
+            }
+            .timeline::after {
+                left: 20px;
+            }
+            .timeline-item.left::before,
+            .timeline-item.right::before {
+                left: 35px;
+                border-width: 8px 8px 8px 0;
+            }
+            .stat-box h3 {
+                font-size: 2.5rem;
+            }
+            .stat-box p {
+                font-size: 0.9rem;
+            }
+            .team-member-card {
+                padding: 25px;
+            }
+            .team-avatar {
+                width: 90px;
+                height: 90px;
+            }
+            .gallery-item {
+                height: 180px;
+            }
+            .gallery-item .overlay span {
+                font-size: 0.9rem;
+            }
+            /* Adjustments for contact form */
+            .contact-form-card {
+                padding: 20px;
+            }
+            .contact-form-card label, .contact-form-card input, .contact-form-card textarea, .contact-form-card button {
+                width: 100%;
+            }
+            .homepage-slider {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand" href="#hero-home">
+                <img src="img/logo.png" alt="Navi Disha Foundation Logo" class="logo img-fluid">
+                Navi Disha Foundation
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#hero-home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about-us">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#our-work">Our Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact-us">Contact Us</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-outline-light btn-donate" href="#">Donate Now <i class="fas fa-heart ms-2"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Home Page Hero Section -->
+        <section id="hero-home" class="hero-section hero-home text-white d-flex align-items-center text-center">
+            <div class="container position-relative z-1">
+                <h1 class="display-4 fw-bold fade-in-heading">Empowering Every Child</h1>
+                <p class="lead fade-in-text">Join us in creating brighter futures for underprivileged children.</p>
+                <a href="#about-us" class="btn btn-outline-light btn-lg mt-3">Get Involved</a>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <!-- Homepage Image Slider
+        <section class="py-5 bg-section-light">
+            <div class="container text-center">
+                <h2 class="section-heading mb-4">Gallery Highlights</h2>
+                 <div class="homepage-slider">
+                    <input type="radio" name="slider" id="slide1" checked>
+                    <input type="radio" name="slider" id="slide2"checked>
+                    <input type="radio" name="slider" id="slide3"checked>
+
+                    <div class="slides">
+                        <div class="slide s1"><img src="img/education.jpg" alt="Image 1"></div>
+                        <div class="slide"><img src="https://placehold.co/1500x900/ffeb3b/212121?text=Slide+2" alt="Image 2"></div>
+                        <div class="slide"><img src="https://placehold.co/1500x900/ffeb3b/212121?text=Slide+3" alt="Image 3"></div>
+                    </div>
+
+                    <div class="navigation">
+                        <label for="slide1" class="nav-dot"></label>
+                        <label for="slide2" class="nav-dot"></label>
+                        <label for="slide3" class="nav-dot"></label>
+                    </div>
+                </div> 
+            </div>
+        </section> -->
+
+        <!-- Homepage Counters -->
+        <!-- <section class="py-5 text-white" style="background-color: var(--brand-dark);">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h2 class="counter" data-count="1200">0</h2>
+                        <p>Children Helped</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h2 class="counter" data-count="150">0</h2>
+                        <p>Volunteers</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h2 class="counter" data-count="75">0</h2>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h2 class="counter" data-count="25">0</h2>
+                        <p>Communities Reached</p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Homepage Testimonials -->
+        <section class="py-5 bg-gradient-light">
+            <div class="container text-center">
+                <h2 class="section-heading mb-4">What People Say</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <blockquote class="blockquote">
+                            <p class="mb-3">"Navi Disha Foundation changed my life. I finally feel safe and supported."</p>
+                            <footer class="blockquote-footer">Ravi, Age 10</footer>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-4">
+                        <blockquote class="blockquote">
+                            <p class="mb-3">"Volunteering here was the most rewarding experience I've ever had."</p>
+                            <footer class="blockquote-footer">Sara, Volunteer</footer>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-4">
+                        <blockquote class="blockquote">
+                            <p class="mb-3">"My donations are making a visible impact. This NGO is transparent and efficient."</p>
+                            <footer class="blockquote-footer">David, Donor</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Homepage Video Section -->
+        <section class="video-section">
+            <div class="video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/sCPREA5NFTU"
+                    title="YouTube video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Homepage Campaigns -->
+        <section class="py-5 bg-section-light">
+            <div class="container text-center">
+                <h2 class="section-heading mb-4">Our Campaigns</h2>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-4">
+                        <div class="donation-card p-3 text-center">
+                            <span class="category-tag bg-danger">EDUCATION</span>
+                            <img src="img/education.jpg" alt="Education Campaign" class="img-fluid mb-2">
+                            <h5 class="mt-2 mb-2">HELP TO BACK EDUCATION EXPENSES OF A POOR CHILDREN.</h5>
+                            <div class="progress-line">
+                                <div class="fill" style="width: 27%;"></div>
+                            </div>
+                            <div class="donation-info">
+                                <span>2,70,000 of 10,00,000</span>
+                                <span class="text-danger">27%</span>
+                            </div>
+                            <button class="donate-btn-homepage mt-3">DONATE NOW</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="donation-card p-3 text-center">
+                            <span class="category-tag" style="background-color: var(--brand-secondary);">MALNUTRITION</span>
+                            <img src="img/MALNUTRITION.jpg" alt="Malnutrition Campaign" class="img-fluid mb-2">
+                            <h5 class="mt-2 mb-2">HELP FOR FIGHT AGAINST MALNUTRITION.</h5>
+                            <div class="progress-line">
+                                <div class="fill" style="width: 43%;"></div>
+                            </div>
+                            <div class="donation-info">
+                                <span>8,60,000 of 20,00,000</span>
+                                <span class="text-danger">43%</span>
+                            </div>
+                            <button class="donate-btn-homepage mt-3">DONATE NOW</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="donation-card p-3 text-center">
+                            <span class="category-tag" style="background-color: var(--highlight-color);">SANITATION</span>
+                            <img src="img/SANITATION.jpg" alt="Sanitation Campaign" class="img-fluid mb-2">
+                            <h5 class="mt-2 mb-2">HELP TO BUILD A HEALTHY LIFE OF A POOR CHILDREN.</h5>
+                            <div class="progress-line">
+                                <div class="fill" style="width: 63%;"></div>
+                            </div>
+                            <div class="donation-info">
+                                <span>6,00,988 of 12,00,000</span>
+                                <span class="text-danger">63%</span>
+                            </div>
+                            <button class="donate-btn-homepage mt-3">DONATE NOW</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Homepage Partners -->
+        <!-- <section class="partners-section">
+            <div class="container">
+                <h2 class="section-heading">Our Partner Companies</h2>
+                <div class="partners-grid">
+                    <div class="partner">
+                        <img src="img/man 1.jpg" alt="Partner 1">
+                    </div>
+                    <div class="partner">
+                        <img src="img/man 2.jpg" alt="Partner 2">
+                    </div>
+                    <div class="partner">
+                        <img src="img/woman.jpg" alt="Partner 3">
+                    </div>
+                    <div class="partner">
+                        <img src="img/man3.jpg" alt="Partner 4">
+                    </div>
+                    <div class="partner">
+                        <img src="img/man4.jpg" alt="Partner 5">
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+
+        <!-- About Us Section -->
+        <section id="about-us" class="hero-section hero-about text-center text-white d-flex align-items-center justify-content-center">
+            <div class="container position-relative z-1">
+                <h1 class="display-2 mb-3">Our Journey of Impact</h1>
+                <p class="lead mb-4">
+                    At Navi Disha Foundation, we are more than an NGO; we are a movement. Discover our unwavering commitment to empowering communities and transforming lives through sustainable change.
+                </p>
+                <a href="#our-mission-section" class="btn btn-lg btn-outline-light">Explore Our Story <i class="fas fa-arrow-down ms-2"></i></a>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <section id="our-mission-section" class="mission-values py-5 bg-gradient-light">
+            <div class="container text-center">
+                <h2 class="section-heading mb-5">Our Guiding Principles</h2>
+                <div class="row pt-4 justify-content-center">
+                    <div class="col-md-4 mb-4">
+                        <div class="value-card p-4 rounded shadow-lg h-100">
+                            <i class="fas fa-hands-helping fa-4x text-brand-primary mb-3 icon-pop"></i>
+                            <h4 class="fw-bold" style="color: var(--brand-dark);">Compassion</h4>
+                            <p class="text-muted">Driven by deep empathy and a desire to uplift every individual.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="value-card p-4 rounded shadow-lg h-100">
+                            <i class="fas fa-seedling fa-4x text-brand-primary mb-3 icon-pop"></i>
+                            <h4 class="fw-bold" style="color: var(--brand-dark);">Sustainability</h4>
+                            <p class="text-muted">Fostering lasting change through eco-conscious and self-sufficient programs.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="value-card p-4 rounded shadow-lg h-100">
+                            <i class="fas fa-lightbulb fa-4x text-brand-primary mb-3 icon-pop"></i>
+                            <h4 class="fw-bold" style="color: var(--brand-dark);">Innovation</h4>
+                            <p class="text-muted">Constantly seeking new and effective ways to tackle complex challenges.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="our-pillars py-5 bg-section-light">
+            <div class="container">
+                <h2 class="section-heading text-center mb-5">The Pillars of Our Impact</h2>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="pillar-card d-flex align-items-start p-4 shadow-sm h-100">
+                            <div class="icon-circle me-4 flex-shrink-0" style="background-color: var(--brand-primary);"><i class="fas fa-book-open fa-2x text-white"></i></div>
+                            <div>
+                                <h3 class="fw-bold" style="color: var(--brand-dark);">Education: Illuminating Minds</h3>
+                                <p class="text-muted">We champion quality education, offering free community schools, scholarships, and vocational training to empower children and youth for a brighter future.</p>
+                                <a href="#" class="read-more text-brand-primary">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="pillar-card d-flex align-items-start p-4 shadow-sm h-100">
+                            <div class="icon-circle me-4 flex-shrink-0" style="background-color: var(--brand-primary);"><i class="fas fa-medkit fa-2x text-white"></i></div>
+                            <div>
+                                <h3 class="fw-bold" style="color: var(--brand-dark);">Healthcare: Nurturing Well-being</h3>
+                                <p class="text-muted">Ensuring access to vital healthcare, we organize health camps, mobile clinics, and awareness programs for marginalized communities.</p>
+                                <a href="#" class="read-more text-brand-primary">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="pillar-card d-flex align-items-start p-4 shadow-sm h-100">
+                            <div class="icon-circle me-4 flex-shrink-0" style="background-color: var(--brand-primary);"><i class="fas fa-hands fa-2x text-white"></i></div>
+                            <div>
+                                <h3 class="fw-bold" style="color: var(--brand-dark);">Livelihood: Building Self-Reliance</h3>
+                                <p class="text-muted">Our programs equip individuals with skills for economic independence, including vocational training, entrepreneurship, and microfinance support.</p>
+                                <a href="#" class="read-more text-brand-primary">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="pillar-card d-flex align-items-start p-4 shadow-sm h-100">
+                            <div class="icon-circle me-4 flex-shrink-0" style="background-color: var(--brand-primary);"><i class="fas fa-leaf fa-2x text-white"></i></div>
+                            <div>
+                                <h3 class="fw-bold" style="color: var(--brand-dark);">Environment: Protecting Our Planet</h3>
+                                <p class="text-muted">We actively engage communities in conservation efforts like tree plantation, waste management, and clean water initiatives for a healthier earth.</p>
+                                <a href="#" class="read-more text-brand-primary">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="our-journey" style="background-color: var(--brand-dark); color: var(--text-light); padding: 80px 0;">
+            <div class="container text-center">
+                <h2 class="section-heading text-white mb-5">Our Journey So Far</h2>
+                <div class="row">
+                    <div class="col-md-8 mx-auto">
+                        <p class="lead-info mb-5" style="color: var(--text-light);">From humble beginnings to a widespread impact, Navi Disha Foundation has steadily grown, touching thousands of lives across various communities. Here are some key milestones:</p>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content shadow p-4 rounded bg-white text-dark">
+                            <h4 class="fw-bold" style="color: var(--brand-primary);">2010 - Foundation Established</h4>
+                            <p>Navi Disha Foundation officially registered, beginning with a focus on primary education in rural areas.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content shadow p-4 rounded bg-white text-dark">
+                            <h4 class="fw-bold" style="color: var(--brand-primary);">2014 - Healthcare Initiatives Launched</h4>
+                            <p>Expanded our reach to include medical camps and health awareness programs in underserved villages.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content shadow p-4 rounded bg-white text-dark">
+                            <h4 class="fw-bold" style="color: var(--brand-primary);">2018 - Livelihood Programs Begin</h4>
+                            <p>Introduced vocational training and microfinance support to empower women and youth economically.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content shadow p-4 rounded bg-white text-dark">
+                            <h4 class="fw-bold" style="color: var(--brand-primary);">2022 - Environmental Projects Initiated</h4>
+                            <p>Launched large-scale tree plantation drives and waste management campaigns.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="impact-stats py-5 bg-section-light">
+            <div class="container text-center">
+                <h2 class="section-heading mb-5">Our Impact at a Glance</h2>
+                <div class="row text-center justify-content-center">
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-box p-3">
+                            <i class="fas fa-users fa-3x text-brand-primary mb-3"></i>
+                            <h3 class="display-4 fw-bold count-up" style="color: var(--brand-dark);" data-target="15000">0</h3>
+                            <p class="lead-info">Lives Impacted</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-box p-3">
+                            <i class="fas fa-child fa-3x text-brand-primary mb-3"></i>
+                            <h3 class="display-4 fw-bold count-up" style="color: var(--brand-dark);" data-target="5000">0</h3>
+                            <p class="lead-info">Children Educated</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-box p-3">
+                            <i class="fas fa-stethoscope fa-3x text-brand-primary mb-3"></i>
+                            <h3 class="display-4 fw-bold count-up" style="color: var(--brand-dark);" data-target="80">0</h3>
+                            <p class="lead-info">Health Camps</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-box p-3">
+                            <i class="fas fa-tree fa-3x text-brand-primary mb-3"></i>
+                            <h3 class="display-4 fw-bold count-up" style="color: var(--brand-dark);" data-target="10000">0</h3>
+                            <p class="lead-info">Trees Planted</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section py-5 bg-gradient-light">
+            <div class="container text-center">
+                <h2 class="section-heading mb-5">Meet Our Dedicated Team</h2>
+                <p class="lead-info mb-5">Behind every success story is a passionate team committed to our mission. Get to know the faces driving change at Navi Disha Foundation.</p>
+                <div class="row justify-content-center g-4">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="team-member-card shadow-sm p-4 rounded h-100">
+                            <img src="img/man4.jpg" alt="Aarav Sharma - Founder & Director" class="img-fluid rounded-circle mb-3 team-avatar">
+                            <h5 class="fw-bold" style="color: var(--brand-dark);">Aarav Sharma</h5>
+                            <p class="text-muted small">Founder & Director</p>
+                            <div class="social-links">
+                                <a href="#" class="mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+                                <a href="#" class="mx-2"><i class="fab fa-twitter fa-lg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="team-member-card shadow-sm p-4 rounded h-100">
+                            <img src="img/woman.jpg" alt="Priya Singh - Head of Programs" class="img-fluid rounded-circle mb-3 team-avatar">
+                            <h5 class="fw-bold" style="color: var(--brand-dark);">Priya Singh</h5>
+                            <p class="text-muted small">Head of Programs</p>
+                            <div class="social-links">
+                                <a href="#" class="mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+                                <a href="#" class="mx-2"><i class="fab fa-twitter fa-lg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="team-member-card shadow-sm p-4 rounded h-100">
+                            <img src="img/man3.jpg" alt="Rajesh Kumar - Community Outreach Lead" class="img-fluid rounded-circle mb-3 team-avatar">
+                            <h5 class="fw-bold" style="color: var(--brand-dark);">Rajesh Kumar</h5>
+                            <p class="text-muted small">Community Outreach Lead</p>
+                            <div class="social-links">
+                                <a href="#" class="mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+                                <a href="#" class="mx-2"><i class="fab fa-twitter fa-lg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="our-work" class="hero-section hero-our-work text-white d-flex align-items-center">
+            <div class="container text-center content">
+                <h1 class="display-4 fw-bold">Empowering Communities. Transforming Lives.</h1>
+                <p class="lead">We work across Education, Health, Environment, and Livelihood to build a better tomorrow.</p>
+                <a href="#focus" class="btn btn-primary btn-lg mt-3">Explore Our Work</a>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <!-- Focus Areas -->
+        <section id="focus" class="section bg-gradient-light">
+            <div class="container">
+                <h2 class="section-heading mb-5">Our Focus Areas</h2>
+                <div class="row g-4 justify-content-center">
+
+                    <div class="col-md-3">
+                        <div class="focus-card">
+                            <img src="img/shru edu.jpg" alt="Education" class="img-fluid rounded mb-3" />
+                            <i class="bi bi-journal-text"></i>
+                            <h5>Education</h5>
+                            <p>Empowering children with access to quality education in rural and underserved areas.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="focus-card">
+                            <img src="img/shru medical.jpg" alt="Medical" class="img-fluid rounded mb-3" />
+                            <i class="bi bi-heart-pulse"></i>
+                            <h5>Medical</h5>
+                            <p>Providing critical health support, medical camps, and wellness awareness programs.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="focus-card">
+                            <img src="img/environment.jpg" alt="Environment" class="img-fluid rounded mb-3" />
+                            <i class="bi bi-tree-fill"></i>
+                            <h5>Environment</h5>
+                            <p>Promoting tree plantations, clean water access, and sustainable green initiatives.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="focus-card">
+                            <img src="img/Livelihood.jpg" alt="Livelihood" class="img-fluid rounded mb-3" />
+                            <i class="bi bi-briefcase-fill"></i>
+                            <h5>Livelihood</h5>
+                            <p>Helping communities develop income through skills, training, and micro-entrepreneurship.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Work Testimonials -->
+        <section class="section bg-section-light">
+            <div class="container">
+                <h2 class="section-heading mb-4">What People Say</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 testimonial">
+                        <p>"Because of this foundation, I could return to school and now dream of becoming a teacher."</p>
+                        <strong>- Rani, Student</strong>
+                    </div>
+                    <div class="col-md-5 testimonial">
+                        <p>"Their free health camps changed lives in our village. Grateful forever."</p>
+                        <strong>- Suraj, Farmer</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="hero-section hero-gallery text-center text-white d-flex align-items-center justify-content-center">
+            <div class="container position-relative z-1">
+                <h1 class="display-3 fade-in-heading">Our Journey, Our Impact</h1>
+                <p class="lead fade-in-text">Witness the change we're creating, one step at a time.</p>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <section class="container text-center my-5 fade-in-section bg-gradient-light">
+            <h2 class="section-heading-gallery">Visual Gallery</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card gallery-card h-100 glow-card lift-card">
+                        <img src="img/Education for All.jpg" class="card-img-top gallery-img" alt="Education">
+                        <div class="card-body">
+                            <h5 class="card-title">Education for All</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card gallery-card h-100 glow-card lift-card">
+                        <img src="img/Health Camps.jpg" class="card-img-top gallery-img" alt="Health">
+                        <div class="card-body">
+                            <h5 class="card-title">Health Camps</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card gallery-card h-100 glow-card lift-card">
+                        <img src="img/prople cleaning.jpg" class="card-img-top gallery-img" alt="Children Programs">
+                        <div class="card-body">
+                            <h5 class="card-title">Environment Cleaning</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 mx-auto">
+                    <div class="card gallery-card h-100 glow-card lift-card">
+                        <img src="img/Empowering Villages.jpg" class="card-img-top gallery-img" alt="Community Work">
+                        <div class="card-body">
+                            <h5 class="card-title">Empowering Villages</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container text-center my-5 fade-in-section bg-section-light">
+            <h2 class="section-heading-gallery">What We Do (Details)</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-3">
+                    <div class="card what-we-do-card h-100 glow-card lift-card">
+                        <div class="card-body">
+                            <i class="fas fa-school icon-large mb-3"></i>
+                            <h5 class="card-title">Education</h5>
+                            <p class="card-text">We operate rural learning centers, helping over 1,500 children gain access to education and supplies.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card what-we-do-card h-100 glow-card lift-card">
+                        <div class="card-body">
+                            <i class="fas fa-heartbeat icon-large mb-3"></i>
+                            <h5 class="card-title">Health Camps</h5>
+                            <p class="card-text">We organize free medical camps and hygiene awareness sessions in underserved areas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card what-we-do-card h-100 glow-card lift-card">
+                        <div class="card-body">
+                            <i class="fas fa-leaf icon-large mb-3"></i>
+                            <h5 class="card-title">Environment Cleaning</h5>
+                            <p class="card-text">We promote cleanliness and involve children in green activities through community action.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card what-we-do-card h-100 glow-card lift-card">
+                        <div class="card-body">
+                            <i class="fas fa-hands-helping icon-large mb-3"></i>
+                            <h5 class="card-title">Empowering Villages</h5>
+                            <p class="card-text">Workshops and cleanup campaigns build self-reliance in rural areas for long-term sustainability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container my-5 fade-in-section text-center bg-gradient-light">
+            <h2 class="section-heading-gallery">Our Impact (Detailed)</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card text-center impact-card-gallery glow-card lift-card">
+                        <div class="card-body">
+                            <h3 class="card-title">10,000+</h3>
+                            <p class="card-text">Children Educated</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center impact-card-gallery glow-card lift-card">
+                        <div class="card-body">
+                            <h3 class="card-title">500+</h3>
+                            <p class="card-text">Health Camps Organized</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center impact-card-gallery glow-card lift-card">
+                        <div class="card-body">
+                            <h3 class="card-title">300+</h3>
+                            <p class="card-text">Volunteers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Us Section (from cont.html) -->
+    <section id="contact-us" class="py-5 bg-section-light">
+        <div class="container contact-container">
+            <div class="contact-header">
+                <h2 class="section-heading">Contact Us</h2>
+                <h3>We’d love to hear from you. Reach out with any questions or feedback.</h3>
+            </div>
+            <div class="row g-5 justify-content-center">
+                <!-- Contact Form -->
+                <div class="col-md-8">
+                    <div class="contact-form-card">
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="name" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Your Email</label>
+                                <input type="email" class="form-control" id="email" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Contact Info -->
+                <div class="col-md-4">
+                    <div class="info-box shadow-sm">
+                        <i class="fas fa-envelope-open-text mb-2"></i>
+                        <h5>Email Us</h5>
+                        <p>info@ngoundation.org</p>
+                    </div>
+                    <div class="info-box shadow-sm">
+                        <i class="fas fa-phone-alt mb-2"></i>
+                        <h5>Call Us</h5>
+                        <p>+1 234 567 8900</p>
+                    </div>
+                    <div class="info-box shadow-sm">
+                        <i class="fas fa-map-marker-alt mb-2"></i>
+                        <h5>Visit Us</h5>
+                        <p>123 NGO Street, City, Country</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- General Call to Action Section (from About Us page, good for general purpose) -->
+        <section class="cta-section text-white text-center py-5 parallax-bg">
+            <div class="container position-relative z-1">
+                <h2 class="display-3 mb-3">Join Us in Making a Difference</h2>
+                <p class="lead mb-4">Every contribution, big or small, fuels our mission and transforms lives. Stand with Navi Disha Foundation.</p>
+                <a href="#" class="btn btn-lg btn-brand-primary-solid me-3">Donate Now <i class="fas fa-donate ms-2"></i></a>
+                <a href="#contact-us" class="btn btn-lg btn-outline-light">Get Involved <i class="fas fa-hands-helping ms-2"></i></a>
+            </div>
+            <div class="cta-overlay"></div>
+        </section>
+
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="footer text-white p-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="fw-bold text-brand-primary mb-3">Navi Disha Foundation</h5>
+                    <p class="text-muted small">Empowering communities, transforming lives through sustainable development in education, healthcare, livelihood, and environment.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="fw-bold text-brand-primary mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#hero-home" class="text-muted text-decoration-none hover-brand-primary">Home</a></li>
+                        <li><a href="#about-us" class="text-muted text-decoration-none hover-brand-primary">About Us</a></li>
+                        <li><a href="#our-work" class="text-muted text-decoration-none hover-brand-primary">Our Work</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none hover-brand-primary">Volunteer</a></li>
+                        <li><a href="#contact-us" class="text-muted text-decoration-none hover-brand-primary">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="fw-bold text-brand-primary mb-3">Stay Connected</h5>
+                    <p class="text-muted small">Subscribe to our newsletter for updates and impact stories.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address">
+                            <button class="btn btn-brand-primary-solid" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                    <p class="text-muted small mt-3">&copy; 2025 Navi Disha Foundation. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery (required for Lightbox) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNavbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Count-up animation for Impact Statistics (both homepage and about us sections)
+        function animateCountUp(targetElement) {
+            const target = parseInt(targetElement.getAttribute('data-count') || targetElement.getAttribute('data-target'));
+            let current = 0;
+            const duration = 2000; // 2 seconds
+            const increment = target / (duration / 10); // Adjust step for smoother animation
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                targetElement.textContent = Math.floor(current).toLocaleString(); // Format with commas
+            }, 10);
+        }
+
+        // Intersection Observer for Count-up animation on both sections
+        const impactSections = document.querySelectorAll('.impact-stats, .py-5.text-white[style*="background-color: var(--brand-dark)"]'); // Select both sections
+        impactSections.forEach(section => {
+            if (section) {
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.querySelectorAll('.count-up, .counter').forEach(element => {
+                                animateCountUp(element);
+                            });
+                            observer.unobserve(entry.target); // Stop observing once animated
+                        }
+                    });
+                }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+
+                observer.observe(section);
+            }
+        });
+
+        // Ensure Lightbox is properly configured
+        lightbox.option({
+          'resizeDuration': 200,
+          'wrapAround': true,
+          'albumLabel': "Image %1 of %2"
+        });
+    </script>
+
+</body>
+</html>
